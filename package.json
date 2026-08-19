@@ -1,0 +1,94 @@
+{
+  "name": "meeting-tracker",
+  "productName": "议迹",
+  "version": "1.8.0",
+  "description": "任务会议追踪与对比 - 本地桌面应用（免登录 / SQLite / 本地 AI）",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "preview": "electron . --preview",
+    "dist": "electron-builder --win",
+    "dist:mac": "electron-builder --mac"
+  },
+  "author": "Vincent",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@phosphor-icons/web": "^2.1.1",
+    "adm-zip": "^0.6.0",
+    "pdfjs-dist": "^6.2.108",
+    "sql.js": "^1.13.0"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2",
+    "pdfkit": "^0.19.1"
+  },
+  "build": {
+    "appId": "com.yiji.meetingtracker",
+    "productName": "议迹",
+    "directories": {
+      "output": "dist"
+    },
+    "electronDist": "node_modules/electron/dist",
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "renderer/**/*",
+      "schema.sql",
+      "scripts/**/*",
+      "!scripts/.venv/**",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png",
+      "extraResources": [
+        {
+          "from": "vendor/python",
+          "to": "python"
+        },
+        {
+          "from": "vendor/models",
+          "to": "models"
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "议迹"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "category": "public.app-category.productivity",
+      "extraResources": [
+        {
+          "from": "vendor/python-mac-arm64",
+          "to": "python"
+        },
+        {
+          "from": "vendor/models",
+          "to": "models"
+        }
+      ]
+    }
+  }
+}

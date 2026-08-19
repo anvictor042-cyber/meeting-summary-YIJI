@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; script-src 'self'" />
+  <title>议迹 · 任务会议追踪与对比</title>
+  <link rel="stylesheet" href="assets/icons/regular/style.css" />
+  <link rel="stylesheet" href="assets/icons/bold/style.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar" aria-label="主导航">
+      <div class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="12" cy="16" r="8.5" stroke="currentColor" stroke-width="2.4" />
+          <circle cx="20" cy="16" r="8.5" stroke="currentColor" stroke-width="2.4" />
+          <circle cx="16" cy="16" r="2.6" fill="currentColor" />
+        </svg>
+        <div class="brand-text">
+          <span class="brand-name">议迹</span>
+          <span class="brand-sub">会议追踪 · 对比</span>
+        </div>
+      </div>
+
+      <nav id="nav">
+        <button class="nav-item" data-route="#/tasks">
+          <i class="ph ph-list-checks"></i><span>任务</span>
+        </button>
+        <button class="nav-item" data-route="#/settings">
+          <i class="ph ph-gear-six"></i><span>设置</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-foot">
+        <div class="local-dot" title="数据仅存于本机"></div>
+        <span>数据仅存于本机</span>
+      </div>
+    </aside>
+
+    <main id="view" tabindex="-1"></main>
+  </div>
+
+  <div id="toast-root" aria-live="polite"></div>
+  <div id="modal-root"></div>
+
+  <script src="utils.js"></script>
+  <script src="audio.js"></script>
+  <script src="app.js"></script>
+  <script src="tasks.js"></script>
+  <script src="task-detail.js"></script>
+  <script src="meeting.js"></script>
+  <script src="compare.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

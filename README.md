@@ -35,12 +35,40 @@
 4. 会议结束后自动转写并生成结构化纪要
 5. 在同一任务下勾选两场会议，体验「对比」能力
 
+## 🌐 国内下载说明
+
+GitHub 在国内访问可能不稳定，下载安装包时如果遇到打不开或速度慢，请尝试以下方式：
+
+1. **开启代理/VPN 后下载**（推荐）：代理连上后直接点击 Releases 里的文件即可
+2. **使用 GitHub 加速镜像**：将下载链接前缀 `https://github.com/` 替换为加速镜像地址，例如：
+   ```
+   https://gh-proxy.com/https://github.com/anvictor042-cyber/meeting-summary-YIJI/releases/download/v1.8.0/YIJI-1.8.0-mac-arm64.dmg
+   ```
+3. **直接使用直链**：
+   - macOS（M 芯片）：`https://github.com/anvictor042-cyber/meeting-summary-YIJI/releases/download/v1.8.0/YIJI-1.8.0-mac-arm64.dmg`
+   - Windows：`https://github.com/anvictor042-cyber/meeting-summary-YIJI/releases/download/v1.8.0/YIJI-Setup-1.8.0.exe`
+
+> ⚠️ 加速镜像为第三方服务，请自行判断可信度；文件校验信息见安装说明文档。
+
 ## 🛠️ 技术栈
 
 - **框架**：Electron
 - **语音转写**：SenseVoiceSmall（本地离线，支持说话人区分）
 - **AI 纪要**：本地 Ollama 或任意 OpenAI 兼容端点
-- **数据存储**：本地数据库，无云端依赖
+- **数据存储**：本地数据库（SQLite / sql.js），无云端依赖
+
+## 📁 项目结构
+
+```
+├── main.js              # Electron 主进程（窗口、IPC、启动声明弹窗）
+├── preload.js           # 预加载脚本（安全桥接）
+├── src/                 # 主进程模块（数据库/AI/转写/设置）
+├── renderer/            # 前端界面（任务/会议/对比/设置）
+├── scripts/             # 构建与辅助脚本（打包/转写/测试）
+├── schema.sql           # 数据库表结构
+├── build/               # 应用图标
+└── package.json
+```
 
 ## 📜 非商业使用声明
 
