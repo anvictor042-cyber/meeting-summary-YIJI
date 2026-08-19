@@ -1,0 +1,25 @@
+# 依赖
+node_modules/
+dist/
+build/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+npm-debug.log*
+
+# 环境变量
+.env
+.env.local
+
+# 编辑器
+.vscode/
+.idea/
+
+# 数据库文件（本地数据）
+*.db
+*.sqlite
